@@ -1,0 +1,23 @@
+# CONFIG OF MONGODB DATABASE
+
+# LOCAL DEVELOPMENT SETUP
+development:
+  sessions:
+    default:
+      hosts: 
+        - - <%= ENV['MONGO_URI'] %>
+      database: <%= ENV['MONGO_DATABASE'] %>
+      max_retries_on_connection_failure: 20
+      persist_in_safe_mode: true
+      skip_version_check: true
+
+# PRODUCTION HEROKU SETUP
+production:
+  sessions:
+    default:
+      hosts: 
+        - - <%= ENV['MONGO_URI'] %>
+      database: <%= ENV['MONGO_DATABASE'] %>
+      max_retries_on_connection_failure: 20
+      persist_in_safe_mode: true
+      skip_version_check: true
