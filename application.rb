@@ -28,7 +28,7 @@ class Application < Sinatra::Application
   
   # try: curl -d "name=YOUR_NAME&email=YOUR_EMAIL&subject=YOUR_SUBJECT&message=YOUR_MESSAGE" http://127.0.0.1:9393/send
   post '/send' do
-    @flash = {}
+    @flash               = Hash.new
     @message             = Message.new
     @message.name        = Sanitize.clean params[:name]
     @message.email       = Sanitize.clean params[:email]
